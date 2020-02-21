@@ -1,0 +1,394 @@
+{
+  "contractName": "Destroyable",
+  "abi": [
+    {
+      "constant": false,
+      "inputs": [],
+      "name": "killContract",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.5.12+commit.7709ece9\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"constant\":false,\"inputs\":[],\"name\":\"killContract\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/Users/dan/Documents/Coding/New Projects/CoinFlip Official/CoinFlip/contracts/Destroyable.sol\":\"Destroyable\"},\"evmVersion\":\"petersburg\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/dan/Documents/Coding/New Projects/CoinFlip Official/CoinFlip/contracts/Destroyable.sol\":{\"keccak256\":\"0x18aa87bf007d8b4e1b4eb815f8ca8834309105cab2f402a582bfdab7fccf5007\",\"urls\":[\"bzz-raw://35700ff5245ee6fdf9a6139c35939254a1818ca0e0a7f80166b8fa441bf25cbd\",\"dweb:/ipfs/QmQyWwGgas4DTS1iQxkPFvQ1ckmQfd8UiEGATZtvBzQ4qw\"]},\"/Users/dan/Documents/Coding/New Projects/CoinFlip Official/CoinFlip/contracts/Ownable.sol\":{\"keccak256\":\"0xb0b1b715cab4c5ff1c776f51d4f14712eee6e26d0a157f2e2f628256f723f850\",\"urls\":[\"bzz-raw://bc536cb0fe292f736ed760770ed6f5ce2fa75cc0ff96ee4ab2c8180b92af2f01\",\"dweb:/ipfs/QmX2m8EpbDLBvJZFrGj4djkwCvdcLYakArMx7LC6j7ioD1\"]}},\"version\":1}",
+  "bytecode": "0x6080604052336000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550610176806100536000396000f3fe608060405234801561001057600080fd5b506004361061002b5760003560e01c80631c02708d14610030575b600080fd5b61003861003a565b005b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff16146100df576040517f08c379a000000000000000000000000000000000000000000000000000000000815260040180806020018281038252602881526020018061011a6028913960400191505060405180910390fd5b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16fffe546869732066756e6374696f6e206973207265737472696374656420746f20746865206f776e6572a265627a7a72315820336c05c41242f67e0e59babc1ba39b67eec1a7dd3547f4dd137112e6706dff3c64736f6c634300050c0032",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b506004361061002b5760003560e01c80631c02708d14610030575b600080fd5b61003861003a565b005b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff16146100df576040517f08c379a000000000000000000000000000000000000000000000000000000000815260040180806020018281038252602881526020018061011a6028913960400191505060405180910390fd5b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16fffe546869732066756e6374696f6e206973207265737472696374656420746f20746865206f776e6572a265627a7a72315820336c05c41242f67e0e59babc1ba39b67eec1a7dd3547f4dd137112e6706dff3c64736f6c634300050c0032",
+  "sourceMap": "49:120:1:-;;;343:10:3;335:5;;:18;;;;;;;;;;;;;;;;;;49:120:1;;;;;;",
+  "deployedSourceMap": "49:120:1:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;49:120:1;;;;;;;;;;;;;;;;;;;87:78;;;:::i;:::-;;;418:5:3;;;;;;;;;;;404:19;;:10;:19;;;395:73;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;152:5:1;;;;;;;;;;;138:20;;",
+  "source": "import \"./Ownable.sol\";\npragma solidity 0.5.12;\n\ncontract Destroyable is Ownable{\n\n    function killContract () public onlyOwner{\n        selfdestruct (owner);\n    }\n\n\n}\n",
+  "sourcePath": "/Users/dan/Documents/Coding/New Projects/CoinFlip Official/CoinFlip/contracts/Destroyable.sol",
+  "ast": {
+    "absolutePath": "/Users/dan/Documents/Coding/New Projects/CoinFlip Official/CoinFlip/contracts/Destroyable.sol",
+    "exportedSymbols": {
+      "Destroyable": [
+        376
+      ]
+    },
+    "id": 377,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "absolutePath": "/Users/dan/Documents/Coding/New Projects/CoinFlip Official/CoinFlip/contracts/Ownable.sol",
+        "file": "./Ownable.sol",
+        "id": 362,
+        "nodeType": "ImportDirective",
+        "scope": 377,
+        "sourceUnit": 440,
+        "src": "0:23:1",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "id": 363,
+        "literals": [
+          "solidity",
+          "0.5",
+          ".12"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "24:23:1"
+      },
+      {
+        "baseContracts": [
+          {
+            "arguments": null,
+            "baseName": {
+              "contractScope": null,
+              "id": 364,
+              "name": "Ownable",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 439,
+              "src": "73:7:1",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_Ownable_$439",
+                "typeString": "contract Ownable"
+              }
+            },
+            "id": 365,
+            "nodeType": "InheritanceSpecifier",
+            "src": "73:7:1"
+          }
+        ],
+        "contractDependencies": [
+          439
+        ],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 376,
+        "linearizedBaseContracts": [
+          376,
+          439
+        ],
+        "name": "Destroyable",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "body": {
+              "id": 374,
+              "nodeType": "Block",
+              "src": "128:37:1",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 371,
+                        "name": "owner",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 417,
+                        "src": "152:5:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address_payable",
+                          "typeString": "address payable"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_address_payable",
+                          "typeString": "address payable"
+                        }
+                      ],
+                      "id": 370,
+                      "name": "selfdestruct",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 6758,
+                      "src": "138:12:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_selfdestruct_nonpayable$_t_address_payable_$returns$__$",
+                        "typeString": "function (address payable)"
+                      }
+                    },
+                    "id": 372,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "138:20:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 373,
+                  "nodeType": "ExpressionStatement",
+                  "src": "138:20:1"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 375,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [
+              {
+                "arguments": null,
+                "id": 368,
+                "modifierName": {
+                  "argumentTypes": null,
+                  "id": 367,
+                  "name": "onlyOwner",
+                  "nodeType": "Identifier",
+                  "overloadedDeclarations": [],
+                  "referencedDeclaration": 438,
+                  "src": "119:9:1",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_modifier$__$",
+                    "typeString": "modifier ()"
+                  }
+                },
+                "nodeType": "ModifierInvocation",
+                "src": "119:9:1"
+              }
+            ],
+            "name": "killContract",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 366,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "109:2:1"
+            },
+            "returnParameters": {
+              "id": 369,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "128:0:1"
+            },
+            "scope": 376,
+            "src": "87:78:1",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          }
+        ],
+        "scope": 377,
+        "src": "49:120:1"
+      }
+    ],
+    "src": "0:170:1"
+  },
+  "legacyAST": {
+    "absolutePath": "/Users/dan/Documents/Coding/New Projects/CoinFlip Official/CoinFlip/contracts/Destroyable.sol",
+    "exportedSymbols": {
+      "Destroyable": [
+        376
+      ]
+    },
+    "id": 377,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "absolutePath": "/Users/dan/Documents/Coding/New Projects/CoinFlip Official/CoinFlip/contracts/Ownable.sol",
+        "file": "./Ownable.sol",
+        "id": 362,
+        "nodeType": "ImportDirective",
+        "scope": 377,
+        "sourceUnit": 440,
+        "src": "0:23:1",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "id": 363,
+        "literals": [
+          "solidity",
+          "0.5",
+          ".12"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "24:23:1"
+      },
+      {
+        "baseContracts": [
+          {
+            "arguments": null,
+            "baseName": {
+              "contractScope": null,
+              "id": 364,
+              "name": "Ownable",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 439,
+              "src": "73:7:1",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_Ownable_$439",
+                "typeString": "contract Ownable"
+              }
+            },
+            "id": 365,
+            "nodeType": "InheritanceSpecifier",
+            "src": "73:7:1"
+          }
+        ],
+        "contractDependencies": [
+          439
+        ],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 376,
+        "linearizedBaseContracts": [
+          376,
+          439
+        ],
+        "name": "Destroyable",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "body": {
+              "id": 374,
+              "nodeType": "Block",
+              "src": "128:37:1",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 371,
+                        "name": "owner",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 417,
+                        "src": "152:5:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address_payable",
+                          "typeString": "address payable"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_address_payable",
+                          "typeString": "address payable"
+                        }
+                      ],
+                      "id": 370,
+                      "name": "selfdestruct",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 6758,
+                      "src": "138:12:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_selfdestruct_nonpayable$_t_address_payable_$returns$__$",
+                        "typeString": "function (address payable)"
+                      }
+                    },
+                    "id": 372,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "138:20:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 373,
+                  "nodeType": "ExpressionStatement",
+                  "src": "138:20:1"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 375,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [
+              {
+                "arguments": null,
+                "id": 368,
+                "modifierName": {
+                  "argumentTypes": null,
+                  "id": 367,
+                  "name": "onlyOwner",
+                  "nodeType": "Identifier",
+                  "overloadedDeclarations": [],
+                  "referencedDeclaration": 438,
+                  "src": "119:9:1",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_modifier$__$",
+                    "typeString": "modifier ()"
+                  }
+                },
+                "nodeType": "ModifierInvocation",
+                "src": "119:9:1"
+              }
+            ],
+            "name": "killContract",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 366,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "109:2:1"
+            },
+            "returnParameters": {
+              "id": 369,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "128:0:1"
+            },
+            "scope": 376,
+            "src": "87:78:1",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          }
+        ],
+        "scope": 377,
+        "src": "49:120:1"
+      }
+    ],
+    "src": "0:170:1"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.5.12+commit.7709ece9.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.0.23",
+  "updatedAt": "2020-02-15T14:39:54.887Z",
+  "devdoc": {
+    "methods": {}
+  },
+  "userdoc": {
+    "methods": {}
+  }
+}
