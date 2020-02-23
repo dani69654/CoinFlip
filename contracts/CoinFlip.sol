@@ -9,6 +9,7 @@ contract CoinFlip is Ownable, usingProvable, Destroyable {
   uint256 constant NUM_RANDOM_BYTES_REQUESTED = 1;
   uint private mainContractBalance;
 
+
   event balanceUpdated (bool done);
   event LogNewProvableQuery (string queryRequested);
   event generatedRandomNumber(uint256 randomNumber);
@@ -19,7 +20,7 @@ contract CoinFlip is Ownable, usingProvable, Destroyable {
   }
 
   modifier costs (){
-      require (msg.value >= 10000000000000000 wei ,"Min bet is 0.1 Ether");
+      require (msg.value >= 0.1 ether ,"Min bet is 0.1 Ether");
       _;
   }
 
@@ -43,11 +44,11 @@ contract CoinFlip is Ownable, usingProvable, Destroyable {
 
 
   function flip (uint decision) payable public  {
-     require (msg.value <= mainContractBalance * 3, "Contract balance needs to be 3 times your bet amount");
+     require (msg.value <= getMainContractBalance ()/2 + provable_getPrice("random"), "Bet must be higher than the oracle cost + double the amount deposited in the contract");
      require (playerByAddress[msg.sender].inGame == false, "You are currently in game, cannot start a new one yet");
      playerByAddress[msg.sender].playerAddress = msg.sender;
      playerByAddress[msg.sender].choice = decision;
-     playerByAddress[msg.sender].bet = msg.value;
+     playerByAddress[msg.sender].bet = msg.value - provable_getPrice("random");
      playerByAddress[msg.sender].inGame = true;
 
    update();
@@ -85,7 +86,7 @@ contract CoinFlip is Ownable, usingProvable, Destroyable {
   }
 
 
-  function verifyResult (uint randomNumber, bytes32 _queryId) public {
+  function verifyResult (uint randomNumber, bytes32 _queryId) private {
     if(randomNumber == playerByAddress[player[_queryId].playerAddress].choice){
     playerByAddress[player[_queryId].playerAddress].customerBalance += playerByAddress[player[_queryId].playerAddress].bet;
     mainContractBalance -= playerByAddress[player[_queryId].playerAddress].bet;
@@ -94,8 +95,8 @@ contract CoinFlip is Ownable, usingProvable, Destroyable {
     mainContractBalance += playerByAddress[player[_queryId].playerAddress].bet;
     emit flipResult ("lost");
     }
-    playerByAddress[msg.sender].bet = 0;
-    playerByAddress[msg.sender].inGame = false;
+    playerByAddress[player[_queryId].playerAddress].bet = 0;
+    playerByAddress[player[_queryId].playerAddress].inGame = false;
   }
 
 
@@ -107,8 +108,9 @@ contract CoinFlip is Ownable, usingProvable, Destroyable {
 
 
   function withdrawalCustomerFunds () public payable {
-     playerByAddress[msg.sender].playerAddress.transfer(playerByAddress[msg.sender].customerBalance*2);
+     uint amountToWithdraw = playerByAddress[msg.sender].customerBalance;
      playerByAddress[msg.sender].customerBalance = 0;
+     playerByAddress[msg.sender].playerAddress.transfer(amountToWithdraw*2);
      emit balanceUpdated (true);
   }
 
