@@ -1,7 +1,7 @@
 # CoinFlip
 CoinFlip with oracles to have randomness
 
-It's a Coin Flip smart contract game that uses Provables API in order to have randonmess.
+It's a Coin Flip smart contract game that uses Provables API in order to have randomness.
 
 || How to use it ||
 
@@ -15,4 +15,4 @@ It's a Coin Flip smart contract game that uses Provables API in order to have ra
 
 Good luck.
 
-Dani69654
+Dani
