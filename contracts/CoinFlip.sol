@@ -47,15 +47,15 @@ contract CoinFlip is Ownable, usingProvable, Destroyable {
 
 
 
-  function flip (uint decision) payable public  {
-     require (msg.value <= getMainContractBalance (), "Bet cannot be higher than the amount deposited in the contract");
-     require (playerByAddress[msg.sender].inGame == false, "You are currently in game, cannot start a new one yet");
-     playerByAddress[msg.sender].playerAddress = msg.sender;
-     playerByAddress[msg.sender].choice = decision;
-     playerByAddress[msg.sender].bet = msg.value.sub(provable_getPrice("random")); // Contract keeps the fee to pay the oracle from customer's bet.
-     playerByAddress[msg.sender].inGame = true;
-
-   update();
+  function flip (uint decision) payable public {
+  
+    require (msg.value <= getMainContractBalance (), "Not enough funds");
+    require (playerByAddress[msg.sender].inGame == false, "You are currently in game");
+    playerByAddress[msg.sender].playerAddress = msg.sender;
+    playerByAddress[msg.sender].choice = decision;
+    playerByAddress[msg.sender].bet = msg.value.sub(provable_getPrice("random")); // Contract keeps oracle's fee.
+    playerByAddress[msg.sender].inGame = true;
+    update();
   }
 
   function update() payable public costs() {
@@ -91,8 +91,10 @@ contract CoinFlip is Ownable, usingProvable, Destroyable {
 
 
   function verifyResult (uint randomNumber, bytes32 _queryId) private {
+  
     if(randomNumber == playerByAddress[player[_queryId].playerAddress].choice){
-    playerByAddress[player[_queryId].playerAddress].customerBalance = playerByAddress[player[_queryId].playerAddress].customerBalance.add(playerByAddress[player[_queryId].playerAddress].bet);
+    playerByAddress[player[_queryId].playerAddress].customerBalance = 
+    playerByAddress[player[_queryId].playerAddress].customerBalance.add(playerByAddress[player[_queryId].playerAddress].bet);
     mainContractBalance = mainContractBalance.sub(playerByAddress[player[_queryId].playerAddress].bet);
     emit flipResult ("won");
     } else {
