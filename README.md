@@ -3,11 +3,11 @@ Simple coinflip game that uses an oracle to achieve randomness.
 
 ### How to use it
 
-```git clone```
-Navigate into the root folder
-```cd client```
-```python -m SimpleHTTPServer```
+```git clone``` <br>
+Navigate into the root folder  <br>
+```cd client```  <br>
+```python -m SimpleHTTPServer```  <br>
 
-Navigate to localhost:8000
+Navigate to localhost:8000  <br>
 
-Connect Metamask and play
+Connect Metamask and play 
