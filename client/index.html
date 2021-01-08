@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coinflip</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+    <script src="main.js"></script>
+    <script src="abi.js"></script>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div id="welcomeText">
+        <p>Coin flip betting dapp</p>
+      </div>
+      <br><br><br>
+      <div class="row">
+          <div class="col-3"></div>
+          <div class="col-6">            
+            <div class="form-group">
+              <label for="betAmountSelector">Choose a bet amount</label> <br>
+              <select class="form-control" id="betAmountSelector">
+                <option>0.1</option>
+                <option>0.5</option>
+                <option>1</option>
+              </select> <br>
+
+              <label for="betOn" text-align:center>Head or Tail</label> <br>
+              <select class="form-control" id="betOnSelector">
+                <option>Head</option>
+                <option>Tail</option>
+              </select>
+            </div>                  
+        </div>
+        <div class="col-3" id='gameInfo'>
+          <small>Player address:</small>
+          <small><span id="playerAddress"></span></small>
+
+          <small>Bet amount:</small> 
+          <small><span id="btAm"></span></small><br>
+
+          <small>Player choice:</small> 
+          <small><span id="plCh"></span></small>
+        </div>
+      </div>
+      <div class="wrapper">
+        <button class="btn btn-outline-secondary" id='playBt'>PLAY</button> <br><br>
+        <span id="events"></span>
+      </div>
+      </div>
+  </body>
+</html>

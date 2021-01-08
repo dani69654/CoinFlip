@@ -1,0 +1,19 @@
+*{
+    margin:0
+}
+
+#welcomeText{
+    text-align: center;
+}
+label {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+}
+.wrapper {
+    text-align: center;
+}
+
+#gameInfo{
+    padding-right: 10px;
+}
