@@ -1,18 +1,13 @@
 # CoinFlip
-CoinFlip with oracles to have randomness
+Simple coinflip game that uses an oracle to achieve randomness.
 
-It's a Coin Flip smart contract game that uses Provables API in order to have randomness.
+### How to use it
 
-|| How to use it ||
+```git clone```
+Navigate into the root folder
+```cd client```
+```python -m SimpleHTTPServer```
 
-> You need to deposit money in it. At least 3 times your bet;
-> You can bet 0.5 or 1 ETH at time;
+Navigate to localhost:8000
 
-> Withdrawal buttons will be displayed only if you win;
-> The Ether you win will stay on the contract until you withdrawl them.
-
-
-
-Good luck.
-
-Dani
+Connect Metamask and play
